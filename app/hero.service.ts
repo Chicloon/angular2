@@ -5,12 +5,16 @@ import { Hero } from './hero';
 @Injectable()
 export class HeroService {
   getHeroes() {
-       return Promise.resolve(HEROES);
+    return Promise.resolve(HEROES);
   }
 
   getHeroesSlowly() {
-  return new Promise<Hero[]>(resolve =>
-    setTimeout(() => resolve(HEROES), 2000) // 2 seconds
-  );
-}
+    return new Promise<Hero[]>(resolve =>
+      setTimeout(() => resolve(HEROES), 2000) // 2 seconds
+    );
+  }
+
+  getHero(id: number){
+    return this.getHeroes().then(heroes => heroes.filter(hero => hero.id === id[0]));  
+  }
 }
