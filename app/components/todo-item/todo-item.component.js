@@ -9,32 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var todo_item_component_1 = require('./todo-item.component');
-var TodoListComponent = (function () {
-    function TodoListComponent() {
+var todo_model_1 = require('../../shared//todo.model');
+var TodoItem = (function () {
+    function TodoItem() {
+        this.deleted = new core_1.EventEmitter();
     }
-    TodoListComponent.prototype.onTodoDeleted = function (todo) {
-        if (todo) {
-            var index = this.todos.indexOf(todo);
-            if (index > -1) {
-                this.todos.splice(index, 1);
-            }
-        }
+    TodoItem.prototype.toggleDone = function () {
+        this.todo.done = !this.todo.done;
+    };
+    TodoItem.prototype.delete = function () {
+        this.deleted.emit(this.todo);
     };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Array)
-    ], TodoListComponent.prototype, "todos", void 0);
-    TodoListComponent = __decorate([
+        __metadata('design:type', todo_model_1.Todo)
+    ], TodoItem.prototype, "todo", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], TodoItem.prototype, "deleted", void 0);
+    TodoItem = __decorate([
         core_1.Component({
-            selector: 'todo-list',
-            templateUrl: './app/todo/todo-list.component.html',
-            styleUrls: ['./app/todo/todo-list.component.css'],
-            directives: [todo_item_component_1.TodoItem]
+            selector: 'todo-item',
+            templateUrl: './app/components/todo-item/todo-item.component.html',
+            styleUrls: ['./app/components/todo-item/todo-item.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], TodoListComponent);
-    return TodoListComponent;
+    ], TodoItem);
+    return TodoItem;
 }());
-exports.TodoListComponent = TodoListComponent;
-//# sourceMappingURL=todo-list.component.js.map
+exports.TodoItem = TodoItem;
+//# sourceMappingURL=todo-item.component.js.map

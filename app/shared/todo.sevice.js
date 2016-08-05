@@ -9,16 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var TodoItem = (function () {
-    function TodoItem() {
+var todo_data_1 = require('./todo.data');
+var TodoService = (function () {
+    function TodoService() {
     }
-    TodoItem = __decorate([
-        core_1.Component({
-            selector: 'todo-item',
-            templateUrl: './app/todo/todo-item.component.html'
-        }), 
+    TodoService.prototype.getTodos = function () {
+        return todo_data_1.todos;
+    };
+    TodoService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], TodoItem);
-    return TodoItem;
+    ], TodoService);
+    return TodoService;
 }());
-//# sourceMappingURL=todo-item.components.js.map
+exports.TodoService = TodoService;
+//# sourceMappingURL=todo.sevice.js.map

@@ -11,13 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var todo_form_component_1 = require('./components/todo-form/todo-form.component');
 var todo_list_component_1 = require('./components/todo-list/todo-list.component');
-var todo_data_1 = require('./shared/todo.data');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Todo';
-        this.todos = todo_data_1.todos;
-        ;
+        this.todos = [];
     }
+    AppComponent.prototype.onTodoAdded = function (todo) {
+        this.todos.push(todo);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'todo-app',
