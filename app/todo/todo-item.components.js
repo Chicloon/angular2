@@ -9,26 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var todo_form_component_1 = require('./todo/todo-form.component');
-var todo_list_component_1 = require('./todo/todo-list.component');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Todo';
-        this.todos = [];
+var TodoItem = (function () {
+    function TodoItem() {
     }
-    AppComponent.prototype.onTodoAdded = function (todo) {
-        this.todos.push(todo);
-    };
-    AppComponent = __decorate([
+    TodoItem = __decorate([
         core_1.Component({
-            selector: 'todo-app',
-            templateUrl: './app/app.component.html',
-            styleUrls: ['./app/app.component.css'],
-            directives: [todo_list_component_1.TodoListComponent, todo_form_component_1.TodoFormComponent]
+            selector: 'todo-item',
+            templateUrl: './app/todo/todo-item.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], TodoItem);
+    return TodoItem;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=todo-item.components.js.map

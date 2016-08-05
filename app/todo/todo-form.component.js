@@ -9,32 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var todo_item_component_1 = require('./todo-item.component');
-var TodoListComponent = (function () {
-    function TodoListComponent() {
+var todo_1 = require('./todo');
+var TodoFormComponent = (function () {
+    function TodoFormComponent() {
+        this.added = new core_1.EventEmitter();
     }
-    TodoListComponent.prototype.onTodoDeleted = function (todo) {
-        if (todo) {
-            var index = this.todos.indexOf(todo);
-            if (index > -1) {
-                this.todos.splice(index, 1);
-            }
+    TodoFormComponent.prototype.add = function (title) {
+        if (title) {
+            this.added.emit(new todo_1.Todo(title));
         }
     };
     __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Array)
-    ], TodoListComponent.prototype, "todos", void 0);
-    TodoListComponent = __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], TodoFormComponent.prototype, "added", void 0);
+    TodoFormComponent = __decorate([
         core_1.Component({
-            selector: 'todo-list',
-            templateUrl: './app/todo/todo-list.component.html',
-            styleUrls: ['./app/todo/todo-list.component.css'],
-            directives: [todo_item_component_1.TodoItem]
+            selector: 'todo-form',
+            templateUrl: './app/todo/todo-form.component.html',
+            styleUrls: ['./app/todo/todo-form.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], TodoListComponent);
-    return TodoListComponent;
+    ], TodoFormComponent);
+    return TodoFormComponent;
 }());
-exports.TodoListComponent = TodoListComponent;
-//# sourceMappingURL=todo-list.component.js.map
+exports.TodoFormComponent = TodoFormComponent;
+//# sourceMappingURL=todo-form.component.js.map
