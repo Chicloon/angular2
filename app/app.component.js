@@ -11,19 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var todo_form_component_1 = require('./components/todo-form/todo-form.component');
 var todo_list_component_1 = require('./components/todo-list/todo-list.component');
-var todo_data_1 = require('./shared/todo.data');
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Todo';
-        this.todos = todo_data_1.todos;
-        ;
+        this.title = 'Angular 2Do';
+        this.todos = [];
     }
+    AppComponent.prototype.onTodoAdded = function (todo) {
+        this.todos.push(todo);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'todo-app',
             templateUrl: './app/app.component.html',
             styleUrls: ['./app/app.component.css'],
-            directives: [todo_list_component_1.TodoListComponent, todo_form_component_1.TodoFormComponent]
+            directives: [todo_form_component_1.TodoFormComponent, todo_list_component_1.TodoListComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

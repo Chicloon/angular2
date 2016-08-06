@@ -9,34 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var todo_model_1 = require('../../shared//todo.model');
-var TodoItem = (function () {
-    function TodoItem() {
+var todo_model_1 = require('../../shared/todo.model');
+var TodoItemComponent = (function () {
+    function TodoItemComponent() {
         this.deleted = new core_1.EventEmitter();
     }
-    TodoItem.prototype.toggleDone = function () {
+    TodoItemComponent.prototype.toggleDone = function () {
         this.todo.done = !this.todo.done;
     };
-    TodoItem.prototype.delete = function () {
+    TodoItemComponent.prototype.delete = function () {
         this.deleted.emit(this.todo);
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', todo_model_1.Todo)
-    ], TodoItem.prototype, "todo", void 0);
+    ], TodoItemComponent.prototype, "todo", void 0);
     __decorate([
         core_1.Output(), 
-        __metadata('design:type', Object)
-    ], TodoItem.prototype, "deleted", void 0);
-    TodoItem = __decorate([
+        __metadata('design:type', core_1.EventEmitter)
+    ], TodoItemComponent.prototype, "deleted", void 0);
+    TodoItemComponent = __decorate([
         core_1.Component({
             selector: 'todo-item',
             templateUrl: './app/components/todo-item/todo-item.component.html',
             styleUrls: ['./app/components/todo-item/todo-item.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], TodoItem);
-    return TodoItem;
+    ], TodoItemComponent);
+    return TodoItemComponent;
 }());
-exports.TodoItem = TodoItem;
+exports.TodoItemComponent = TodoItemComponent;
 //# sourceMappingURL=todo-item.component.js.map

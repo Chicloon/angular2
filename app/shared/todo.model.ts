@@ -1,13 +1,8 @@
-export interface ITodo {
-    title: string;
-    done: boolean;
-}
-
-export class Todo implements ITodo {
+export class Todo {
     title: string;
     done: boolean;
 
-    constructor (title:string){
+    constructor(title: string) {
         this.title = title;
         this.done = false;
     }

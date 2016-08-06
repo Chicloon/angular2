@@ -9,19 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var todo_model_1 = require('../../shared//todo.model');
+var todo_model_1 = require('../../shared/todo.model');
 var TodoFormComponent = (function () {
     function TodoFormComponent() {
         this.added = new core_1.EventEmitter();
     }
     TodoFormComponent.prototype.add = function (title) {
         if (title) {
-            this.added.emit(new todo_model_1.Todo(title));
+            var todo = new todo_model_1.Todo(title);
+            this.added.emit(todo);
         }
     };
     __decorate([
         core_1.Output(), 
-        __metadata('design:type', Object)
+        __metadata('design:type', core_1.EventEmitter)
     ], TodoFormComponent.prototype, "added", void 0);
     TodoFormComponent = __decorate([
         core_1.Component({

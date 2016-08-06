@@ -1,18 +1,23 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { Todo } from '../../shared//todo.model';
 
-@Component ({
+import { Todo } from '../../shared/todo.model';
+
+@Component({
     selector: 'todo-form',
     templateUrl: './app/components/todo-form/todo-form.component.html',
-    styleUrls:['./app/components/todo-form/todo-form.component.css']
+    styleUrls: ['./app/components/todo-form/todo-form.component.css']
 })
-
 export class TodoFormComponent {
-    @Output() added = new EventEmitter();
+    @Output() added: EventEmitter<Todo>;
 
-    add (title: string) {
+    constructor() {
+        this.added = new EventEmitter<Todo>();
+    }
+
+    add(title: string) {
         if (title) {
-            this.added.emit(new Todo(title));
+            let todo = new Todo(title);
+            this.added.emit(todo);
         }
     }
 }

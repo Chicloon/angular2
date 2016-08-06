@@ -10,16 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var todo_item_component_1 = require('../todo-item/todo-item.component');
-var todo_service_1 = require('../../shared/todo.service');
 var TodoListComponent = (function () {
-    function TodoListComponent(todoService) {
-        this.todoService = todoService;
-        this.todos = this.todoService.getTodos();
-        console.log('done');
+    function TodoListComponent() {
     }
     Object.defineProperty(TodoListComponent.prototype, "sortedTodos", {
         get: function () {
-            return this.todos.map(function (todo) { return todo; })
+            return this.todos
+                .map(function (todo) { return todo; })
                 .sort(function (a, b) {
                 if (a.title > b.title)
                     return 1;
@@ -48,15 +45,18 @@ var TodoListComponent = (function () {
             }
         }
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], TodoListComponent.prototype, "todos", void 0);
     TodoListComponent = __decorate([
         core_1.Component({
             selector: 'todo-list',
             templateUrl: './app/components/todo-list/todo-list.component.html',
             styleUrls: ['./app/components/todo-list/todo-list.component.css'],
-            directives: [todo_item_component_1.TodoItem],
-            providers: [todo_service_1.TodoService]
+            directives: [todo_item_component_1.TodoItemComponent]
         }), 
-        __metadata('design:paramtypes', [todo_service_1.TodoService])
+        __metadata('design:paramtypes', [])
     ], TodoListComponent);
     return TodoListComponent;
 }());
