@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Todo } from './shared/todo.model';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { todos } from './shared/todo.data';
 
 @Component({
     selector: 'todo-app',
@@ -12,14 +13,13 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 })
 export class AppComponent {
     title: string;
-    todos: Todo[];
-
+   
     constructor() {
         this.title = 'Angular 2Do';
-        this.todos = [];
+       
     }
 
-    onTodoAdded(todo: Todo) {
-        this.todos.push(todo);
-    }
+    // onTodoAdded(todo: Todo) {
+    //     this.todos.push(todo);
+    // }
 }

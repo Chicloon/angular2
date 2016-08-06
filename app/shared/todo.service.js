@@ -9,22 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var todo_form_component_1 = require('./components/todo-form/todo-form.component');
-var todo_list_component_1 = require('./components/todo-list/todo-list.component');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Angular 2Do';
+var todo_data_1 = require('./todo.data');
+var TodoService = (function () {
+    function TodoService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'todo-app',
-            templateUrl: './app/app.component.html',
-            styleUrls: ['./app/app.component.css'],
-            directives: [todo_form_component_1.TodoFormComponent, todo_list_component_1.TodoListComponent]
-        }), 
+    TodoService.prototype.getTodos = function () {
+        return todo_data_1.todos;
+    };
+    TodoService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], TodoService);
+    return TodoService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.TodoService = TodoService;
+//# sourceMappingURL=todo.service.js.map
