@@ -17,7 +17,8 @@ var TodoListComponent = (function () {
         this.todos = [];
     }
     TodoListComponent.prototype.ngOnInit = function () {
-        this.todos = this.todoService.getTodos();
+        var _this = this;
+        this.todoService.getTodos().then(function (todos) { return _this.todos = todos; });
     };
     Object.defineProperty(TodoListComponent.prototype, "sortedTodos", {
         get: function () {
@@ -44,12 +45,7 @@ var TodoListComponent = (function () {
         configurable: true
     });
     TodoListComponent.prototype.onTodoDeleted = function (todo) {
-        if (todo) {
-            var index = this.todos.indexOf(todo);
-            if (index > -1) {
-                this.todos.splice(index, 1);
-            }
-        }
+        this.todoService.deleteTodo(todo);
     };
     TodoListComponent = __decorate([
         core_1.Component({
@@ -57,7 +53,6 @@ var TodoListComponent = (function () {
             templateUrl: './app/components/todo-list/todo-list.component.html',
             styleUrls: ['./app/components/todo-list/todo-list.component.css'],
             directives: [todo_item_component_1.TodoItemComponent],
-            providers: [todo_service_1.TodoService]
         }), 
         __metadata('design:paramtypes', [todo_service_1.TodoService])
     ], TodoListComponent);

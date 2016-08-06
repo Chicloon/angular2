@@ -14,7 +14,16 @@ var TodoService = (function () {
     function TodoService() {
     }
     TodoService.prototype.getTodos = function () {
-        return todo_data_1.todos;
+        return new Promise(function (resolve) { return setTimeout(function () { return resolve(todo_data_1.todos); }, 1000); });
+    };
+    TodoService.prototype.addTodo = function (todo) {
+        todo_data_1.todos.push(todo);
+    };
+    TodoService.prototype.deleteTodo = function (todo) {
+        var index = todo_data_1.todos.indexOf(todo);
+        if (index > -1) {
+            todo_data_1.todos.splice(index, 1);
+        }
     };
     TodoService = __decorate([
         core_1.Injectable(), 

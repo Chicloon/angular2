@@ -10,27 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var todo_model_1 = require('../../shared/todo.model');
+var todo_service_1 = require('../../shared/todo.service');
 var TodoFormComponent = (function () {
-    function TodoFormComponent() {
+    function TodoFormComponent(todoService) {
+        this.todoService = todoService;
         this.added = new core_1.EventEmitter();
     }
     TodoFormComponent.prototype.add = function (title) {
         if (title) {
             var todo = new todo_model_1.Todo(title);
-            this.added.emit(todo);
+            this.todoService.addTodo(todo);
         }
     };
     __decorate([
         core_1.Output(), 
-        __metadata('design:type', core_1.EventEmitter)
+        __metadata('design:type', Object)
     ], TodoFormComponent.prototype, "added", void 0);
     TodoFormComponent = __decorate([
         core_1.Component({
             selector: 'todo-form',
             templateUrl: './app/components/todo-form/todo-form.component.html',
-            styleUrls: ['./app/components/todo-form/todo-form.component.css']
+            styleUrls: ['./app/components/todo-form/todo-form.component.css'],
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [todo_service_1.TodoService])
     ], TodoFormComponent);
     return TodoFormComponent;
 }());
