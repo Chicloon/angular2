@@ -4,3 +4,7 @@ logs
 typings
 npm-debug.log
 test.sh
+app/**/*.js
+app/**/*.js.map
+app/*.js
+app/*.js.map

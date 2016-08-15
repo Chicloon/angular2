@@ -9,24 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var todo_service_1 = require('./shared/todo.service');
-var todo_form_component_1 = require('./components/todo-form/todo-form.component');
-var todo_list_component_1 = require('./components/todo-list/todo-list.component');
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Angular 2Do';
     }
     AppComponent = __decorate([
         core_1.Component({
-            selector: 'todo-app',
-            templateUrl: './app/app.component.html',
-            styleUrls: ['./app/app.component.css'],
-            directives: [todo_form_component_1.TodoFormComponent, todo_list_component_1.TodoListComponent],
-            providers: [todo_service_1.TodoService]
+            selector: 'my-app',
+            template: "\n    <h1 class=\"title\">Component Router</h1>\n    <nav>\n      <a routerLink=\"/crisis-center\" routerLinkActive=\"active\"\n         [routerLinkActiveOptions]=\"{ exact: true }\">Crisis Center</a>\n      <a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\n      <a routerLink=\"/crisis-center/admin\" routerLinkActive=\"active\">Crisis Admin</a>\n      <a routerLink=\"/login\" routerLinkActive=\"active\">Login</a>\n    </nav>\n    <router-outlet></router-outlet>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/ 
 //# sourceMappingURL=app.component.js.map
